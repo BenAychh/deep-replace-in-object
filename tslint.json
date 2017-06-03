@@ -1,0 +1,21 @@
+{
+  "extends": [
+    "tslint-immutable"
+  ],
+  "rules": {
+
+    // Recommended built-in rules
+    "no-var-keyword": true,
+    "typedef": [true, "call-signature"],
+
+    // Immutability rules
+    "no-let": true,
+
+    // Functional style rules
+    "no-this": true,
+    "no-class": true,
+    "no-new": true,
+    "no-mixed-interface": true,
+    "no-expression-statement": true
+  }
+}
