@@ -29,6 +29,7 @@
     "@types/node": "^7.0.27",
     "@types/ramda": "0.0.11",
     "chai": "^4.0.1",
+    "codeclimate-test-reporter": "^0.5.0",
     "mocha": "^3.4.2",
     "nyc": "^11.0.2",
     "source-map-support": "^0.4.15",
@@ -52,7 +53,7 @@
       "ts-node/register"
     ],
     "reporter": [
-      "json",
+      "lcov",
       "html"
     ],
     "sourceMap": true,
