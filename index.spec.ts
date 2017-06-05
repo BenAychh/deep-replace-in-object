@@ -169,26 +169,26 @@ describe('simple arrays', () => {
 });
 
 describe('deeply nested values', () => {
-  const object = {
+const object = {
+  key1: 'some value',
+  key2: {
     key1: 'some value',
-    key2: {
-      key1: 'some value',
-      key2: [5, 'some value', 'some other value', 10],
-      key3: [
-        { key1: 'some other value' },
-        { key2: [10, 'some other value', 5, 'some value'] },
-        { key3: 'some value' },
-        { key4: 5 },
-        { key5: 10 }
-      ],
-      key4: 10,
-      key5: 5,
-    },
-    key3: [10, 'some other value', 'some value', 5],
+    key2: [5, 'some value', 'some other value', 10],
+    key3: [
+      { key1: 'some other value' },
+      { key2: [10, 'some other value', 5, 'some value'] },
+      { key3: 'some value' },
+      { key4: 5 },
+      { key5: 10 }
+    ],
     key4: 10,
-    key5: 'some other value',
-    key6: 5,
-  };
+    key5: 5,
+  },
+  key3: [10, 'some other value', 'some value', 5],
+  key4: 10,
+  key5: 'some other value',
+  key6: 5,
+};
 
   it('does not mutate the object', () => {
     const clonedObject = clone(object);
@@ -197,51 +197,52 @@ describe('deeply nested values', () => {
   });
 
   it('can replace string values', () => {
-    const expected = {
-      key1: 'a new value',
-      key2: {
-        key1: 'a new value',
-        key2: [5, 'a new value', 'some other value', 10],
-        key3: [
-          { key1: 'some other value' },
-          { key2: [10, 'some other value', 5, 'a new value'] },
-          { key3: 'a new value' },
-          { key4: 5 },
-          { key5: 10 }
-        ],
-        key4: 10,
-        key5: 5,
-      },
-      key3: [10, 'some other value', 'a new value', 5],
-      key4: 10,
-      key5: 'some other value',
-      key6: 5,
-    };
+    const expected = 
+{
+  key1: 'a new value',
+  key2: {
+    key1: 'a new value',
+    key2: [5, 'a new value', 'some other value', 10],
+    key3: [
+      { key1: 'some other value' },
+      { key2: [10, 'some other value', 5, 'a new value'] },
+      { key3: 'a new value' },
+      { key4: 5 },
+      { key5: 10 }
+    ],
+    key4: 10,
+    key5: 5,
+  },
+  key3: [10, 'some other value', 'a new value', 5],
+  key4: 10,
+  key5: 'some other value',
+  key6: 5,
+};
     const replacedObject = deepReplaceInObject('some value', 'a new value', object);
     expect(replacedObject).to.deep.equal(expected);
   });
 
   it('can replace number values', () => {
-    const expected = {
-      key1: 'some value',
-      key2: {
-        key1: 'some value',
-        key2: [5, 'some value', 'some other value', 4],
-        key3: [
-          { key1: 'some other value' },
-          { key2: [4, 'some other value', 5, 'some value'] },
-          { key3: 'some value' },
-          { key4: 5 },
-          { key5: 4 }
-        ],
-        key4: 4,
-        key5: 5,
-      },
-      key3: [4, 'some other value', 'some value', 5],
-      key4: 4,
-      key5: 'some other value',
-      key6: 5,
-    };
+const expected = {
+  key1: 'some value',
+  key2: {
+    key1: 'some value',
+    key2: [5, 'some value', 'some other value', 4],
+    key3: [
+      { key1: 'some other value' },
+      { key2: [4, 'some other value', 5, 'some value'] },
+      { key3: 'some value' },
+      { key4: 5 },
+      { key5: 4 }
+    ],
+    key4: 4,
+    key5: 5,
+  },
+  key3: [4, 'some other value', 'some value', 5],
+  key4: 4,
+  key5: 'some other value',
+  key6: 5,
+};
     const replacedObject = deepReplaceInObject(10, 4, object);
     expect(replacedObject).to.deep.equal(expected);
   });
