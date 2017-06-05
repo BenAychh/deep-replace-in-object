@@ -20,8 +20,6 @@ export default function deepReplaceInObject(currentValue: string | number, newVa
       return [...array, value];
     }, [], objectToReplaceIn);
   } else {
-    const blah = keys(objectToReplaceIn);
-    const wtf = objectToReplaceIn;
     return reduce((o: object, key) => {
       const value = <any>objectToReplaceIn[key];
       const keyType = type(value);
