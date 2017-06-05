@@ -36,5 +36,5 @@ function deepReplaceInObject(currentValue, newValue, objectToReplaceIn) {
         }, {}, ramda_1.keys(objectToReplaceIn));
     }
 }
-exports.deepReplaceInObject = deepReplaceInObject;
+exports.default = deepReplaceInObject;
 //# sourceMappingURL=index.js.map

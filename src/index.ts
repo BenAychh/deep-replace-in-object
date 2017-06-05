@@ -8,7 +8,7 @@ function isArray(o: anyObject | Array<any>): o is Array<any> {
   return type(o) === 'Array';
 }
 
-export function deepReplaceInObject(currentValue: string | number, newValue: string | number, objectToReplaceIn: anyObject | any[]): typeof objectToReplaceIn {
+export default function deepReplaceInObject(currentValue: string | number, newValue: string | number, objectToReplaceIn: anyObject | any[]): typeof objectToReplaceIn {
   if (isArray(objectToReplaceIn)) {
     return reduce((array, value) => {
       const keyType = type(value);
