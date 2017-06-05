@@ -1,5 +1,5 @@
 /* tslint:disable no-expression-statement no-any */
-import { deepReplaceInObject } from './index';
+import deepReplaceInObject from './index';
 import { expect } from 'chai';
 import { clone } from 'ramda';
 
